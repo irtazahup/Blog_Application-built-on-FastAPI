@@ -7,7 +7,7 @@ class ShowUser(BaseModel):
     email:str
       # Use forward reference for ShowBlogs
     class Config:
-        orm_mode=True
+        from_attributes=True
               
 
 class Blog(BaseModel):
@@ -16,7 +16,7 @@ class Blog(BaseModel):
     published: bool = True
   
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class ShowBlogWithUser(BaseModel):
     name:str
@@ -28,14 +28,14 @@ class ShowBlogs(BaseModel):
     published: bool = True
     creator:ShowBlogWithUser
     class Config:
-        orm_mode = True
+        from_attributes = True
         
 class AllBlogs(BaseModel):
     title: str
     body: str
     published: bool = True
     class Config:
-        orm_mode = True
+        from_attributes = True
         
 class User(BaseModel):
     name:str
@@ -43,7 +43,7 @@ class User(BaseModel):
     password:str
 
     class Config:
-        orm_mode=True
+        from_attributes=True
 
 
 # class ShowUser(BaseModel):
@@ -51,7 +51,7 @@ class User(BaseModel):
 #     email:str
     
 #     class Config:
-#         orm_mode=True
+#         from_attributes=True
               
         
 class UserLogin(BaseModel):
@@ -59,7 +59,7 @@ class UserLogin(BaseModel):
     password:str
 
     class Config:
-        orm_mode=True
+        from_attributes=True
         
 class Token(BaseModel):
     access_token: str
